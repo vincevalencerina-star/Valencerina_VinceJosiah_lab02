@@ -1,0 +1,82 @@
+:root {
+  --bg: #f3f1ec;
+  --card: #ffffff;
+  --ink: #1d2733;
+  --muted: #5d6975;
+  --line: #c9cfd6;
+  --accent: #0f6b66;
+  --accent-dark: #0b524e;
+  --danger: #a82b2b;
+  --done: #5d6975;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Trebuchet MS", "Segoe UI", system-ui, sans-serif;
+  line-height: 1.5;
+}
+
+.app { max-width: 640px; margin: 0 auto; padding: 2rem 1rem 3rem; }
+h1 { margin: 0 0 1.25rem; font-size: 1.8rem; }
+
+.visually-hidden {
+  position: absolute; width: 1px; height: 1px; overflow: hidden;
+  clip: rect(0 0 0 0); white-space: nowrap;
+}
+
+.controls { display: flex; flex-wrap: wrap; gap: .5rem; }
+.controls input { flex: 1 1 220px; }
+
+input[type="text"] {
+  padding: .6rem .7rem;
+  font: inherit;
+  border: 1.5px solid var(--line);
+  border-radius: 6px;
+  background: #fff;
+  color: var(--ink);
+}
+
+button {
+  font: inherit;
+  font-weight: 600;
+  padding: .5rem .9rem;
+  border-radius: 6px;
+  border: 1.5px solid var(--accent);
+  background: #fff;
+  color: var(--accent);
+  cursor: pointer;
+}
+button:hover { background: #e3f1f0; }
+#addTaskBtn { background: var(--accent); color: #fff; }
+#addTaskBtn:hover { background: var(--accent-dark); }
+
+:focus-visible { outline: 3px solid #1f5fbf; outline-offset: 2px; }
+
+.message { min-height: 1.5rem; margin: .6rem 0 0; color: var(--danger); font-weight: 600; }
+
+.summary {
+  display: flex; gap: 1.5rem; flex-wrap: wrap;
+  margin: .75rem 0 1rem; padding: .6rem .9rem;
+  background: var(--card); border: 1px solid var(--line); border-radius: 8px;
+}
+.summary p { margin: 0; }
+
+#taskList { list-style: none; margin: 0; padding: 0; }
+
+.task-item {
+  display: flex; align-items: center; flex-wrap: wrap; gap: .5rem;
+  margin-bottom: .5rem; padding: .6rem .8rem;
+  background: var(--card); border: 1px solid var(--line);
+  border-left: 5px solid var(--accent); border-radius: 6px;
+}
+.task-item.completed { border-left-color: var(--done); background: #ecedee; }
+
+.task-text, .edit-input { flex: 1 1 200px; min-width: 0; overflow-wrap: anywhere; }
+.task-item.completed .task-text { text-decoration: line-through; color: var(--done); }
+
+.remove-btn { border-color: var(--danger); color: var(--danger); }
+.remove-btn:hover { background: #fbe9e9; }
